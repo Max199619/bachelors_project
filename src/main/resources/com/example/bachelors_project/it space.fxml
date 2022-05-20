@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bachelors_project.itSpaceController">
+   <children>
+      <Label layoutX="375.0" layoutY="14.0" text="IT">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <ListView fx:id="list_of_requests" layoutX="427.0" layoutY="67.0" prefHeight="371.0" prefWidth="336.0" />
+      <Button fx:id="current_requests_button" layoutX="41.0" layoutY="95.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="150.0" text="Current requests" />
+      <Button fx:id="own_requests_button" layoutX="248.0" layoutY="95.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="150.0" text="My requests" />
+      <Button fx:id="assigned_to_me_button" layoutX="41.0" layoutY="191.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="150.0" text="Requests assigned &#10;to me" textAlignment="CENTER" />
+      <Button fx:id="add_equipment_button" layoutX="248.0" layoutY="191.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="150.0" text="Add IT equipment&#10;" textAlignment="CENTER" />
+      <Button fx:id="add_user_button" layoutX="41.0" layoutY="275.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="150.0" text="Add new user&#10;" textAlignment="CENTER" />
+      <Button fx:id="new_request_button" layoutX="248.0" layoutY="275.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="150.0" text="New request&#10;" textAlignment="CENTER" />
+      <Button fx:id="manage_equipment_button" layoutX="248.0" layoutY="363.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="150.0" text="Manage IT equipment&#10;" textAlignment="CENTER" />
+      <Separator layoutX="2.0" layoutY="62.0" prefHeight="2.0" prefWidth="767.0" />
+      <Separator layoutX="421.0" layoutY="61.0" orientation="VERTICAL" prefHeight="383.0" prefWidth="6.0" />
+      <Label fx:id="support_agent" layoutX="556.0" layoutY="28.0" prefHeight="18.0" prefWidth="200.0" text="name and surname of support agent" />
+      <Button fx:id="manage_users_button" layoutX="41.0" layoutY="363.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="150.0" text="Manage users&#10;&#10;" textAlignment="CENTER" />
+      <Separator layoutX="216.0" layoutY="77.0" orientation="VERTICAL" prefHeight="345.0" prefWidth="6.0" />
+   </children>
+</AnchorPane>

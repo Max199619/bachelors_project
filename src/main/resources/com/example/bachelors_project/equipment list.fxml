@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bachelors_project.equipmentListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bachelors_project.equipmentListController">
    <children>
       <Label alignment="CENTER" layoutX="1.0" layoutY="14.0" prefHeight="18.0" prefWidth="874.0" text="IT Equipment">
          <font>
@@ -29,22 +29,23 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="352.0" layoutY="86.0" prefHeight="20.0" prefWidth="172.0" text="Search by: ">
+      <Label layoutX="391.0" layoutY="86.0" prefHeight="20.0" prefWidth="80.0" text="Search by: ">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="search_by" layoutX="524.0" layoutY="83.0" />
-      <Button fx:id="search_button" layoutX="741.0" layoutY="82.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Search" />
+      <TextField fx:id="search_by" layoutX="471.0" layoutY="83.0" />
+      <Button fx:id="search_button" layoutX="627.0" layoutY="83.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Search" />
       <Separator layoutX="1.0" layoutY="115.0" prefHeight="13.0" prefWidth="874.0">
          <padding>
             <Insets right="10.0" top="10.0" />
          </padding>
       </Separator>
-      <ScrollPane fx:id="equipment_scroll_pane" layoutX="1.0" layoutY="129.0" prefHeight="586.0" prefWidth="874.0">
+      <ScrollPane fx:id="equipment_scroll_pane" layoutX="1.0" layoutY="129.0" prefHeight="586.0" prefWidth="895.0">
          <content>
-            <ListView fx:id="equipment_list_view" prefHeight="582.0" prefWidth="873.0" />
+            <ListView fx:id="equipment_list_view" prefHeight="582.0" prefWidth="894.0" />
          </content>
       </ScrollPane>
+      <Button fx:id="add_new_equipment" layoutX="755.0" layoutY="83.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Add new equipment" />
    </children>
 </AnchorPane>

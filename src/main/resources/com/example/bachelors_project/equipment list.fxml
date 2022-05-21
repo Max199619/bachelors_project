@@ -29,7 +29,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="352.0" layoutY="86.0" prefHeight="20.0" prefWidth="172.0" text="Search by: ">
+      <Label layoutX="391.0" layoutY="86.0" prefHeight="20.0" prefWidth="111.0" text="Search by: ">
          <font>
             <Font size="14.0" />
          </font>

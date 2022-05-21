@@ -9,12 +9,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bachelors_project.loginController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="108.0" layoutY="8.0" prefHeight="54.0" prefWidth="158.0" text="LOGIN" textAlignment="CENTER" underline="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="112.0" layoutY="8.0" prefHeight="54.0" prefWidth="158.0" text="LOGIN" textAlignment="CENTER" underline="true">
          <font>
             <Font name="Bodoni MT Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="login_button" layoutX="128.0" layoutY="331.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="118.0" text="Log in">
+      <Button fx:id="login_button" layoutX="132.0" layoutY="331.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="118.0" text="Log in">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

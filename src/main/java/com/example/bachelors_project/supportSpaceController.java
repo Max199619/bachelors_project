@@ -24,16 +24,16 @@ public class supportSpaceController{
 
     public void newRequestWindow(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(bachelorsProjectApplication.class.getResource("regular request.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        stage = new Stage();
         stage.setScene(scene);
         stage.show();
     }
 
     public void newEmployeeWindow(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(bachelorsProjectApplication.class.getResource("adding new user.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        stage = new Stage();
         stage.setScene(scene);
         stage.show();
     }

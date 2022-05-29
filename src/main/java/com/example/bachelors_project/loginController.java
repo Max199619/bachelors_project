@@ -30,7 +30,7 @@ public class loginController {
 
 
     public void Login(ActionEvent event) throws IOException {
-        if (Objects.equals(user_login.getText(), username) && Objects.equals(user_password.getText(), password) &&
+        if (Objects.equals(user_login.getText(), username) && Objects.equals(hashPassword(user_password.getText()), hashPassword(password)) &&
                 Objects.equals(role, "user")) {
 
             FXMLLoader fxmlLoader = new FXMLLoader(bachelorsProjectApplication.class.getResource("support space.fxml"));
@@ -41,7 +41,7 @@ public class loginController {
 
 
             System.out.println("logged in as user");
-        } else if (Objects.equals(user_login.getText(), username) && Objects.equals(user_password.getText(), password) &&
+        } else if (Objects.equals(user_login.getText(), username) && Objects.equals(hashPassword(user_password.getText()), hashPassword(password)) &&
                 Objects.equals(role, "support")) {
 
             FXMLLoader fxmlLoader = new FXMLLoader(bachelorsProjectApplication.class.getResource("it space.fxml"));

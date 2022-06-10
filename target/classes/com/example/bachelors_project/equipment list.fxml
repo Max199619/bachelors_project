@@ -46,6 +46,6 @@
             <ListView fx:id="equipment_list_view" prefHeight="582.0" prefWidth="894.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="add_new_equipment" layoutX="755.0" layoutY="83.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Add new equipment" />
+      <Button fx:id="add_new_equipment" layoutX="755.0" layoutY="83.0" mnemonicParsing="false" onAction="#addEquipmentWindow" prefHeight="26.0" prefWidth="125.0" text="Add new equipment" />
    </children>
 </AnchorPane>

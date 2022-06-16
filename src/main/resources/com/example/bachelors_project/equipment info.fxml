@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import java.lang.String?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="568.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bachelors_project.equipmentInfoController">
    <children>
       <Label layoutX="69.0" layoutY="131.0" text="ID:">
@@ -59,7 +60,19 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <ComboBox fx:id="responsible_department" layoutX="107.0" layoutY="239.0" prefWidth="150.0" />
+      <ComboBox  fx:id="responsible_department" layoutX="107.0" layoutY="239.0" prefWidth="150.0">
+         <items>
+            <String fx:value="IT"/>
+            <String fx:value="HR"/>
+            <String fx:value="Finances"/>
+            <String fx:value="Administration"/>
+            <String fx:value="Production"/>
+            <String fx:value="Sales"/>
+            <String fx:value="Marketing"/>
+            <String fx:value="Legal"/>
+         </items>
+      </ComboBox>
+
       <ComboBox fx:id="responsible_user" layoutX="107.0" layoutY="307.0" prefHeight="26.0" prefWidth="438.0" />
       <Label layoutX="314.0" layoutY="242.0" text="Quantity:">
          <font>

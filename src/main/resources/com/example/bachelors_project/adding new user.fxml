@@ -12,6 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
+<?import javafx.collections.ObservableList?>
+<?import java.lang.String?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="752.0" prefWidth="1103.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bachelors_project.addingNewUserController">
    <children>
       <Label fx:id="new_user_request_title" alignment="CENTER" layoutX="500.0" layoutY="21.0" text="New User - NUXXX">
@@ -91,7 +94,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="hardware_chooser" layoutX="97.0" layoutY="469.0" prefHeight="26.0" prefWidth="398.0" />
+      <ComboBox fx:id="hardware_chooser" layoutX="97.0" layoutY="469.0" prefHeight="26.0" prefWidth="398.0" /> 
       <Label layoutX="18.0" layoutY="353.0" prefHeight="46.0" prefWidth="191.0" text="New user's data&#10;(Name, surname, department):" textAlignment="CENTER">
          <font>
             <Font size="14.0" />

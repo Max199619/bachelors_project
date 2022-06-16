@@ -26,23 +26,22 @@ public class loginController {
     private String role = "user";
     private String username = "test_user";
     private String password = "test_2022";
-    private SqliteConnection sqLite = new SqliteConnection();
+    private final SqliteConnection sqLite = new SqliteConnection();
 
 
-
-    public void Login(ActionEvent event) throws IOException, SQLException {
+    public void Login(ActionEvent event) throws SQLException, IOException {
         Connection conn = connectToDatabase();
-        try {
-            if (DBUsernameCorrect(conn)) {
-                if (Objects.equals(hashPassword(user_password.getText()), getDBPassword(conn)) && Objects.equals(getDBRole(conn),"user")){
+        if (DBUsernameCorrect(conn, user_login.getText())) {
+            if (passwordCorrect(conn) && (getDBRole(conn, user_login.getText()).equals("user"))) {
                     FXMLLoader fxmlLoader = new FXMLLoader(bachelorsProjectApplication.class.getResource("support space.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(fxmlLoader.load());
                     stage.setScene(scene);
                     stage.show();
 
+
                     System.out.println("logged in as user");
-                } else if (Objects.equals(hashPassword(user_password.getText()), getDBPassword(conn)) && Objects.equals(getDBRole(conn),"support")){
+                } else if (passwordCorrect(conn) && (getDBRole(conn, user_login.getText()).equals("support"))) {
                     FXMLLoader fxmlLoader = new FXMLLoader(bachelorsProjectApplication.class.getResource("it space.fxml"));
                     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     scene = new Scene(fxmlLoader.load());
@@ -54,18 +53,28 @@ public class loginController {
                     System.out.println("Incorrect credentials provided!!");
                     System.out.println("Please check if provided credentials are correct!!");
                 }
+            } else if (Objects.equals(hashPassword(user_password.getText()), getDBPassword(conn, user_login.getText())) && Objects.equals(getDBRole(conn, user_login.getText()), "support")) {
+                FXMLLoader fxmlLoader = new FXMLLoader(bachelorsProjectApplication.class.getResource("it space.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(fxmlLoader.load());
+                stage.setScene(scene);
+                stage.show();
 
+                System.out.println("logged in as support");
+            } else {
+                System.out.println("Incorrect credentials provided!!");
+                System.out.println("Please check if provided credentials are correct!!");
             }
-        } catch (SQLException | IOException throwables) {
-            throwables.printStackTrace();
         }
-    }
+
+
+
         public String hashPassword (String password){
             ArrayList<String> charactersInHex = new ArrayList<>();
             char[] charArray = password.toCharArray();
             String newString = "";
             for (char c : charArray) {
-                int chToInt = (int) c;
+                int chToInt = c;
                 chToInt *= 4;
                 chToInt /= 2;
                 chToInt *= 8;
@@ -75,7 +84,7 @@ public class loginController {
                 charactersInHex.add(Integer.toHexString(chToInt * (int) c));
             }
             for (String s : charactersInHex) {
-                newString = newString + s;
+                newString += s ;
             }
             return newString;
 
@@ -87,42 +96,57 @@ public class loginController {
             return sqLite.getConnection();
         }
 
-        public boolean DBUsernameCorrect(Connection db) throws SQLException {
-            Statement stmt = db.createStatement();
-            String sql = "SELECT EXISTS (SELECT 1 FROM user_credentials WHERE username = '" + user_login.getText() + "'";
-            ResultSet rs = stmt.executeQuery(sql);
-            int usernameIsMatching = 0;
-            if (rs.next()){
-                usernameIsMatching = rs.getInt(1);
-            }
-            else{System.out.println("Wrong username input");}
-            return usernameIsMatching == 1;
+        public boolean DBUsernameCorrect(Connection db, String username) throws SQLException {
+                String sql = "SELECT EXISTS (SELECT 1 FROM user_credentials WHERE username = ?)";
+                PreparedStatement ps;
+                ps = db.prepareStatement(sql);
+                ps.setString(1,username);
+                ResultSet rs = ps.executeQuery();
+                int usernameIsMatching = 0;
+                if (rs.next()) {
+                    usernameIsMatching = rs.getInt(1);
+                } else {
+                    System.out.println("Wrong username input");
+                }
+                return usernameIsMatching == 1;
         }
 
-        public String getDBPassword(Connection db) throws SQLException {
-            Statement stmt = db.createStatement();
-            String sql = "SELECT * FROM user_credentials WHERE username = '" + user_login.getText() + "'";
-            ResultSet rs = stmt.executeQuery(sql);
-            String dbPassword = null;
-            if (rs.next()){
-                dbPassword = rs.getString(3);
+
+
+
+        public String getDBPassword(Connection db,String username) throws SQLException {
+            String dbPassword = "";
+            String sql = "SELECT password FROM user_credentials WHERE username = ?";
+            PreparedStatement ps;
+            ps = db.prepareStatement(sql);
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                dbPassword = rs.getString(1);
             }
-            else{System.out.println("Couldn't find a username in a database, password won't be checked");}
             return dbPassword;
         }
 
-        public String getDBRole(Connection db) throws SQLException {
-            Statement stmt = db.createStatement();
-            String sql = "SELECT * FROM user_credentials WHERE username = '" + user_login.getText() + "'";
-            ResultSet rs = stmt.executeQuery(sql);
-            String dbRole = null;
-            if (rs.next()){
-                dbRole = rs.getString(4);
+        public String getDBRole(Connection db, String username) throws SQLException {
+            String dbRole = "";
+            String sql = "SELECT role FROM user_credentials WHERE username = ?";
+            PreparedStatement ps;
+            ps = db.prepareStatement(sql);
+            ps.setString(1,username);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                dbRole = rs.getString(1);
             }
-            else{System.out.println("Wrong username input");}
             return dbRole;
     }
 
+    public boolean passwordCorrect(Connection conn) throws SQLException {
+        boolean passwordMatch;
+        String dbPassword = getDBPassword(conn, user_login.getText());
+        passwordMatch = dbPassword.equals(hashPassword(user_password.getText()));
+        return passwordMatch;
     }
+
+}
 
 

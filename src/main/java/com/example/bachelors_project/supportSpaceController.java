@@ -22,6 +22,7 @@ public class supportSpaceController{
     public Button new_employee_button;
     public ListView request_list;
 
+
     public void newRequestWindow(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(bachelorsProjectApplication.class.getResource("regular request.fxml"));
         scene = new Scene(fxmlLoader.load());

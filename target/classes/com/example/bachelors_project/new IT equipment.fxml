@@ -1,79 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bachelors_project.newITEquipmentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bachelors_project.newITEquipmentController">
    <children>
-      <ScrollPane fx:id="new_equipment_scroll_pane" layoutX="284.0" layoutY="72.0" prefHeight="479.0" prefWidth="492.0">
-         <content>
-            <TextArea fx:id="new_equipment_request_text" prefHeight="478.0" prefWidth="498.0" />
-         </content>
-      </ScrollPane>
-      <Label alignment="CENTER" layoutX="295.0" layoutY="21.0" text="New IT Equipment">
+      <Label alignment="CENTER" layoutX="189.0" layoutY="14.0" text="New IT Equipment">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="57.0" layoutY="172.0" text="Make:">
+      <Label layoutX="301.0" layoutY="131.0" text="Make:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="48.0" layoutY="305.0" text="Quantity:">
+      <TextField fx:id="new_equipment_make" layoutX="346.0" layoutY="128.0" />
+      <TextField fx:id="new_equipment_model" layoutX="106.0" layoutY="166.0" />
+      <Label layoutX="54.0" layoutY="169.0" text="Model:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="new_equipment_make" layoutX="107.0" layoutY="169.0" />
-      <TextField fx:id="new_equipment_model" layoutX="107.0" layoutY="215.0" />
-      <Label layoutX="54.0" layoutY="218.0" text="Model:">
+      <Label layoutX="303.0" layoutY="169.0" text="Type:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="261.0" text="Type:">
+      <Label alignment="CENTER" layoutX="48.0" layoutY="196.0" text="Invoice &#10;number: " textAlignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="new_equipment_quantity" layoutX="107.0" layoutY="302.0" />
-      <Label alignment="CENTER" layoutX="40.0" layoutY="371.0" text="Invoice &#10;number: " textAlignment="CENTER">
+      <Label layoutX="262.0" layoutY="216.0" text="Delivered on:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="19.0" layoutY="343.0" text="Delivered on:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="new_equipment_type" layoutX="107.0" layoutY="258.0" />
-      <TextField fx:id="new_equipment_invoice_number" layoutX="107.0" layoutY="378.0" />
-      <Separator layoutX="4.0" layoutY="57.0" prefHeight="3.0" prefWidth="777.0" />
-      <Label layoutX="105.0" layoutY="72.0" text="Specification ">
+      <TextField fx:id="new_equipment_invoice_number" layoutX="107.0" layoutY="214.0" />
+      <Separator layoutX="4.0" layoutY="57.0" prefHeight="3.0" prefWidth="562.0" />
+      <Label layoutX="228.0" layoutY="68.0" text="Specification ">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="save_button" layoutX="26.0" layoutY="428.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Save" />
-      <Button fx:id="cancel_button" layoutX="157.0" layoutY="428.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Cancel" />
-      <Separator layoutX="-1.0" layoutY="106.0" prefHeight="3.0" prefWidth="281.0" />
-      <Separator layoutX="277.0" layoutY="57.0" orientation="VERTICAL" prefHeight="502.0" prefWidth="6.0" />
-      <Separator layoutX="5.0" layoutY="415.0" prefHeight="3.0" prefWidth="274.0" />
+      <Button fx:id="save_button" layoutX="320.0" layoutY="306.0" mnemonicParsing="false" onAction="#saveToDB" prefHeight="40.0" prefWidth="100.0" text="Save" />
+      <Button fx:id="cancel_button" layoutX="428.0" layoutY="306.0" mnemonicParsing="false" onAction="#cancelAndExit" prefHeight="40.0" prefWidth="100.0" text="Cancel" />
+      <Separator layoutX="48.0" layoutY="108.0" prefHeight="3.0" prefWidth="480.0" />
+      <Separator layoutX="7.0" layoutY="293.0" prefHeight="3.0" prefWidth="552.0" />
       <TextField fx:id="new_equipment_ID" layoutX="107.0" layoutY="128.0" />
       <Label layoutX="68.0" layoutY="131.0" text="ID:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <DatePicker fx:id="delivered_on_date" layoutX="106.0" layoutY="340.0" prefHeight="26.0" prefWidth="150.0" promptText="DD/MM/YYYY" />
+      <DatePicker fx:id="delivered_on_date" layoutX="346.0" layoutY="213.0" prefHeight="26.0" prefWidth="150.0" promptText="DD/MM/YYYY" />
+      <ComboBox fx:id="new_equipment_type" layoutX="345.0" layoutY="166.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

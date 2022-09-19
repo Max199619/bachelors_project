@@ -28,7 +28,7 @@
          </font>
       </Label>
       <TextField fx:id="search_by" layoutX="235.0" layoutY="83.0" prefHeight="26.0" prefWidth="498.0" />
-      <Button fx:id="search_button" layoutX="741.0" layoutY="83.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Search" />
+      <Button fx:id="search_button" layoutX="741.0" layoutY="83.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="118.0" text="Search" />
       <Separator layoutX="1.0" layoutY="115.0" prefHeight="13.0" prefWidth="874.0">
          <padding>
             <Insets right="10.0" top="10.0" />
@@ -36,7 +36,7 @@
       </Separator>
       <ScrollPane fx:id="scroll_pane" layoutX="1.0" layoutY="129.0" prefHeight="586.0" prefWidth="874.0">
          <content>
-            <ListView fx:id="employees_list" prefHeight="582.0" prefWidth="873.0" />
+            <ListView fx:id="employees_list" onMouseClicked="#listChooser" prefHeight="582.0" prefWidth="873.0" />
          </content>
       </ScrollPane>
       <Button fx:id="add_new_employee_button" layoutX="14.0" layoutY="83.0" mnemonicParsing="false" onAction="#addNewEmployeeWindow" prefHeight="26.0" prefWidth="118.0" text="Add new employee" />

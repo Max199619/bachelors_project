@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bachelors_project.requestListController">
+   <children>
+      <Separator layoutX="1.0" layoutY="58.0" prefHeight="13.0" prefWidth="874.0">
+         <padding>
+            <Insets right="10.0" top="10.0" />
+         </padding>
+      </Separator>
+      <Label layoutX="317.0" layoutY="87.0" prefHeight="20.0" prefWidth="118.0" text="Search by: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="search_by" layoutX="438.0" layoutY="84.0" />
+      <Button fx:id="search_button" layoutX="631.0" layoutY="83.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="118.0" text="Search" />
+      <Separator layoutX="1.0" layoutY="115.0" prefHeight="13.0" prefWidth="874.0">
+         <padding>
+            <Insets right="10.0" top="10.0" />
+         </padding>
+      </Separator>
+      <ScrollPane fx:id="equipment_scroll_pane" layoutX="1.0" layoutY="129.0" prefHeight="586.0" prefWidth="895.0">
+         <content>
+            <ListView fx:id="request_list" onMouseClicked="#listChooser" prefHeight="582.0" prefWidth="894.0" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="add_new_request" layoutX="755.0" layoutY="83.0" mnemonicParsing="false" onAction="#createRequestWindow" prefHeight="26.0" prefWidth="125.0" text="Create new request" />
+   </children>
+</AnchorPane>
